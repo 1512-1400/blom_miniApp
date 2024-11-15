@@ -1,3 +1,9 @@
 {
+    "disks":[
+        {
+            "name": "images",
+            "mountTo": "images"
+        }
+    ],
     "port": 3000
 }

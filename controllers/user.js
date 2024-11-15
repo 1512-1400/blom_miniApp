@@ -8,6 +8,7 @@ const User = require(`../models/user`);
 const Messages_log = require(`../models/message_logs`);
 const Reminder = require(`../models/reminder`)
 const Dr_blom = require(`../models/dr_blom`)
+const path = require(`path`)
 
 exports.getToHome = (req, res, next) => {
     res.render(`user/home`, { title: `بلوم | دستیار مراقبت` })
@@ -49,7 +50,7 @@ function findSpeciesInfo(results) {
 }
 exports.postToAnswereImage = async (req, res, next) => {
 
-    const filePath = `${req.file.destination}\\${req.file.filename}`;
+    const filePath = path.join(req.file.destination,req.file.filename);
     const formData = new FormData();
 
     formData.append('images', fs.createReadStream(filePath));
