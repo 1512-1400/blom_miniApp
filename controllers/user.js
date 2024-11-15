@@ -81,7 +81,7 @@ exports.postToAnswereImage = async (req, res, next) => {
                     }
                 ).then(response => {
                     const speciesInfo = findSpeciesInfo(response.data.results);
-                    console.log(speciesInfo)
+                    console.log(`speciesInfo: `,speciesInfo)
 
                     const data = {
                         "چت آیدی": "67890",
