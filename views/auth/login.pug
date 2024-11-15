@@ -1,0 +1,13 @@
+extends ../templates/main.pug
+block content
+    .flex.justify-center.items-center.w-full.h-screen
+        .wrapper.flex.flex-col.h-screen.w-full.relative.overflow-hidden.flex.justify-center.items-center
+            .chat-bg
+            form(action="/login", method="post").w-full.h-screen.flex.flex-col.justify-center.items-center
+                if(error)
+                    .error_box.p-2.pl-4(class="w-full").rounded-lg.border.border-red-700.mb-5 لطفا شماره را به درستی وارد کنید
+                if(invitor)
+                    input#phone.w-full.bg-transparent(type="hidden", name="invitor", value=invitor)
+                .phoneInput.bg-white.p-2.flex.justify-center.items-center.rounded-lg.bg-white(class="w-4/5 ").transition
+                    input#phone.w-full.bg-transparent(type="text", name="phone", placeholder="شماره موبایل:")
+                button(type="submit").loginButton.bg-white.px-2.py-1.rounded-lg.mt-5.transition ورود

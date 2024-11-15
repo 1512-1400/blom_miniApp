@@ -1,0 +1,245 @@
+@font-face {
+    font-family: pinar;
+    src: url('/font/Pinar-V2/Pinar-FD-Light.ttf');
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: pinar;
+    src: url('/font/Pinar-V2/Pinar-FD-Regular.ttf');
+    font-weight: 200;
+}
+
+@font-face {
+    font-family: pinar;
+    src: url('/font/Pinar-V2/Pinar-FD-Medium.ttf');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: pinar;
+    src: url('/font/Pinar-V2/Pinar-FD-SemiBold.ttf');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: pinar;
+    src: url('/font/Pinar-V2/Pinar-FD-Bold.ttf');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: pinar;
+    src: url('/font/Pinar-V2/Pinar-FD-ExtraBold.ttf');
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: pinar;
+    src: url('/font/Pinar-V2/Pinar-FD-Black.ttf');
+    font-weight: 700;
+}
+
+
+* {
+    font-family: pinar;
+    scroll-behavior: smooth;
+}
+
+.messages>* {
+    z-index: 10 !important;
+    font-weight: 200;
+}
+
+.chat-bg {
+    background-image: url('/img/background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 25vw;
+    height: 100vh;
+    z-index: -1 !important;
+    opacity: .5;
+    position: fixed;
+    right: 37.5vw;
+}
+
+.wrapper{
+    height: 100vh;
+}
+.wrapper,
+.messages,
+.profile,
+.type-bar {
+    width: 25vw;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.commandBox {
+    width: 25vw;
+    height: 100px;
+    background-color: #e4e4e4;
+    position: absolute;
+    transition: all ease .25s;
+    z-index: 15 !important;
+    background-color: #f5f5f5;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.openCommand {
+    bottom: 60px;
+}
+
+.closeCommand {
+    bottom: -100px;
+
+}
+
+.message {
+    position: relative;
+    transition: all .3s ease;
+}
+
+.deletedMessage {
+    opacity: 0;
+}
+
+.message::after {
+    content: "";
+    bottom: 0px;
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    clip-path: polygon(0 100%, 100% 100%, 0 0);
+}
+
+.user-message {
+    background-color: #4196CF;
+    border-bottom-right-radius: 0;
+    align-self: flex-end;
+}
+
+.user-message::after {
+    background-color: #4196CF;
+    right: -8px;
+}
+
+.bot-message {
+    border-bottom-left-radius: 0;
+    background-color: #828282;
+    position: relative;
+}
+
+.bot-message::after {
+    background-color: #828282;
+    left: -7px;
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+}
+
+
+input {
+    font-weight: 200;
+    height: 20px;
+    direction: rtl;
+    border: none;
+    outline: none;
+}
+
+.input_box {
+    border: rgb(229, 229, 229) 1.5px solid;
+    padding: 2px;
+    padding-right: 8px;
+}
+
+.fade-bg {
+    background-color: rgba(0, 0, 0, 0.197);
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.197);
+}
+
+.animated {
+    transition: all .3s;
+}
+
+.animated:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.message-timeStamp {
+    margin-bottom: 0;
+}
+
+.shadowed {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1),
+        0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.phoneInput {
+    border: rgb(209, 209, 209) 1.5px solid;
+    padding-right: 8px;
+}
+
+.phoneInput:hover {
+    transform: scale(1.1);
+}
+
+.loginButton {
+    border: rgb(209, 209, 209) 1.5px solid;
+}
+
+.loginButton:hover {
+    background-color: #4196CF;
+}
+
+.inline_keyboard_rows {
+    top: 100%
+}
+
+.inline_keyboard_button {
+    background-color: #000000a6 !important;
+    transform: scaleX(1.04);
+}
+
+
+
+.commandBox .flex .flex {
+    color: #ffffff;
+    background-color: #4196cf;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .chat-bg {
+        width: 100vw;
+        right: 0;
+    }
+
+    .commandBox,
+    .wrapper,
+    .messages,
+    .profile,
+    .type-bar {
+        width: 100vw;
+    }
+
+    .commandBox {
+        left: 0%;
+    }
+}

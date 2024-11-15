@@ -1,0 +1,69 @@
+extends ../templates/main.pug
+block content
+    .commandBox.closeCommand.flex.flex-col.justify-center.items-center.shadowed
+      .w-full.flex.justify-around.items-center.px-5
+        .flex.justify-center.items-center.py-1.px-3.my-1.rounded-md(data-command="/invite", onclick="command(event)") دعوت
+        .flex.justify-center.items-center.py-1.px-3.my-1.rounded-md(data-command="/buy", onclick="command(event)") اشتراک
+        .flex.justify-center.items-center.py-1.px-3.my-1.rounded-md(data-command="/start", onclick="command(event)") شروع
+      .w-full.flex.justify-around.items-center.px-5
+        .flex.justify-center.items-center.py-1.px-3.my-1.rounded-md(data-command="/profile", onclick="command(event)") گلخونه
+        .flex.justify-center.items-center.py-1.px-3.my-1.rounded-md(data-command="/dr", onclick="command(event)") گیاهپزشک
+    .flex.justify-center.items-center.w-full.h-screen
+        .wrapper.flex.flex-col.h-screen.relative.overflow-hidden
+          // بخش پروفایل  
+          .profile.bg-gray-100.px-4.py-2.rounded-t-lg(dir="rtl").shadowed
+            .flex.items-center
+              img.w-10.h-10.rounded-full.ml-2(src="img/profile.jpg", alt="Profile Picture")
+              .ml-3
+                h2.text-lg.font-semibold دکتر بلوم
+                p.text-sm.text-gray-600 آنلاین
+          
+          // پیام‌ها  
+          .messages.flex-grow.overflow-auto.p-4.relative.pb-20.pt-2.relative.flex.flex-col.justify-start.items-start
+            .chat-bg
+            //- div(dir="rtl", data-message-id="1", class="bot-message message bg-blue-500 text-white p-2 rounded-lg mb-2 text-sm w-3/4 shadowed relative")
+            //-   |🌵 اسم رایج گیاه: 
+            //-   br
+            //-   |📋 نام علمی گیاه:  
+            //-   br
+            //-   |🐳 آبـــــیاری: 
+            //-   br
+            //-   |🌞 نور مناسب گیاه: 
+            //-   br
+            //-   |💪کود تقویتی مناسب:  
+            //-   br
+            //-   |🦠علائم آفت شایع: 
+            //-   br
+            //-   |🪴محل مناسب نگهداری گیاه: 
+            //-   br
+            //-   br
+            //-   |---- 
+            //-   br
+            //-   |اگه میخوای همه نیاز های گیاه رو بهت یادآوری کنم "فعــــالسازی✅" رو بزن. 
+            //-   div(class="inline_keyboard_rows flex flex-col justify-start items-center absolute left-0 w-full")
+            //-     div(class="inline_keyboard_row flex justify-between items-center w-full")
+            //-       div(class="inline_keyboard_button w-full text-black m-1 flex justify-center items-center p-1 rounded text-white shadowed" data-callback="iriggation_done") آب دادم
+            //-       div(class="inline_keyboard_button w-full text-black m-1 flex justify-center items-center p-1 rounded text-white shadowed" data-callback="remind_again") دوباره یادم بنداز
+                //- div(class="inline_keyboard_row flex justify-between items-center w-full")
+                //-   div(class="inline_keyboard_button w-full text-black m-1 flex justify-center items-center p-1 rounded text-white shadowed" data-callback="submit")  اشتراک ۶ماهه (۷۵ هزارتومن)
+                //- div(class="inline_keyboard_row flex justify-between items-center w-full")
+                //-   div(class="inline_keyboard_button w-full text-black m-1 flex justify-center items-center p-1 rounded text-white shadowed" data-callback="submit")  اشتراک ۶ماهه (۱۲۰ هزارتومن)
+
+
+          // تایپ بار  
+          .type-bar.px-4.py-3.rounded-b-lg.absolute.bottom-0.right-0.z-20.bg-white.shadowed
+
+            .flex.items-center  
+              button#commandButton.h-10.mr-2.flex.flex-col.justify-center.items-center.text-xs.relative
+
+                img(src="/img/icon/command.png", alt="send", class="w-6") 
+
+
+              .w-full.input_box.flex.justify-center.items-center.border.rounded-lg.bg-white
+                button.sendImage.w-14.h-8.mr-2.flex.justify-center.items-center
+                    img(src="/img/icon/paper-pin.png", alt="send", class="w-5") 
+                input#textInput.w-full.bg-transparent(type="text", placeholder="پیام خود را تایپ کنید...")
+              button#sendButton.h-10.text-white.rounded-full.ml-2.overflow-hidden.flex.justify-center.items-center
+                img(src="/img/icon/send.png", alt="send", class="w-6")  
+    script(src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js")   
+    script(src="js/main.js")  
