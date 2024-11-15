@@ -96,7 +96,7 @@ exports.postToAnswereImage = async (req, res, next) => {
                     console.log(`userId: `, req.session.user.id)
                     Message.create(data).then(() => {
                         Message.findOne({
-                            order: [['id', 'DESC']] // ترتیب نزولی بر اساس id
+                            order: [['id', 'DESC']]
                         }).then((result) => {
                             res.json({
                                 bot_message: {
@@ -118,7 +118,7 @@ exports.postToAnswereImage = async (req, res, next) => {
 
                 }).catch(err => {
                     console.log(err)
-                    res.json({ api_status: '404', bot_message: "نتونستم اسم گیاهت رو تشخیص بدم" });
+                    res.json({ api_status: '404', bot_message: `🥲شرمنده ولی <br>گیاهت رو نتونستم تشخیص بدم سعی کن عکس بعدی رو اینطوری بفرستی: <br><br>1. فقط 1️⃣ گیاه توی عکس مشخص باشه. <br>2. از قسمت سالم گیاه عکس برام بفرستی{🌱} <br>3. از جهتی عکس بگیری که تمام گیاه رو بتونم ببینم{🪴} <br>` });
 
                 })
 
