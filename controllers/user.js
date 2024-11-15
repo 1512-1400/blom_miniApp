@@ -116,6 +116,7 @@ exports.postToAnswereImage = async (req, res, next) => {
 
 
                 }).catch(err => {
+                    console.log(err)
                     res.json({ api_status: '404', bot_message: "نتونستم اسم گیاهت رو تشخیص بدم" });
 
                 })
