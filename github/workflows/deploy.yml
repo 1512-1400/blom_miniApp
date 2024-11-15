@@ -1,0 +1,27 @@
+name: Deploy to Liara
+
+on:
+  push:
+    branches:
+      - main  # به شاخه‌ای که می‌خواهید تغییرات آن را منتشر کنید (مثلاً main)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. چک کردن کد از مخزن GitHub
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 2. نصب Liara CLI
+      - name: Install Liara CLI
+        run: |
+          curl -sL https://install.cli.liara.app | bash
+      
+      # 3. ورود به حساب Liara (شما باید TOKEN خود را در تنظیمات GitHub وارد کنید)
+      - name: Login to Liara
+        run: liara login --email ${{ secrets.LIARA_EMAIL }} --password ${{ secrets.LIARA_PASSWORD }}
+
+      # 4. دپلوی (انتشار) به Liara
+      - name: Deploy to Liara
+        run: liara deploy --app <your-app-name> --region <your-region> --token ${{ secrets.LIARA_TOKEN }}
