@@ -20,7 +20,7 @@ jobs:
       
       # 3. ورود به حساب Liara (شما باید TOKEN خود را در تنظیمات GitHub وارد کنید)
       - name: Login to Liara
-        run: liara login --email kh.abolfazl.ir@gmail.com --password Ab1379aB1379
+        run: liara login --email kh.abolfazl.ir@gmail.com --password Ab1379aB1379`
 
       # 4. دپلوی (انتشار) به Liara
       - name: Deploy to Liara
